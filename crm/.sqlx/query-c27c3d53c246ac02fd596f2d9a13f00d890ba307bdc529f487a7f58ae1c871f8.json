@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE user_stats SET last_in_app_notification = $1, last_email_notification = $2 WHERE email = $3",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Timestamptz",
+        "Timestamptz",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "c27c3d53c246ac02fd596f2d9a13f00d890ba307bdc529f487a7f58ae1c871f8"
+}
