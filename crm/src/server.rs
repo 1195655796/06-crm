@@ -6,7 +6,6 @@ use tonic::transport::{Identity, Server, ServerTlsConfig};
 use tracing::{info, level_filters::LevelFilter};
 use tracing_subscriber::{fmt::Layer, layer::SubscriberExt, util::SubscriberInitExt, Layer as _};
 
-
 #[tokio::main]
 async fn main() -> Result<()> {
     let layer = Layer::new().with_filter(LevelFilter::INFO);
@@ -27,7 +26,6 @@ async fn main() -> Result<()> {
             .add_service(svc)
             .serve(addr)
             .await?;
-        
     } else {
         Server::builder().add_service(svc).serve(addr).await?;
     }
