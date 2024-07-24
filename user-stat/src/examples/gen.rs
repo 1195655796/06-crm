@@ -16,19 +16,17 @@ use serde_json;
 use sqlx::{
     error::BoxDynError,
     postgres::PgTypeInfo,
-    postgres::{ PgValueRef, Postgres},
+    postgres::{PgValueRef, Postgres},
     Decode, Executor, FromRow, PgPool, Row, Type,
 };
 use std::fmt::{Display, Formatter};
 use tokio::time::Instant;
 
-
-
 // generate 10000 users and run them in a tx, repeat 500 times
-#[derive( Debug, Clone, Dummy, Serialize, Deserialize, PartialEq, Eq,)]
+#[allow(non_camel_case_types)]
+#[derive(Debug, Clone, Dummy, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(rename_all = "lowercase")]
 pub enum gender {
-   
     female,
     male,
     unknown,
@@ -217,7 +215,3 @@ impl Display for UserStat {
         write!(f, "{}", serde_json::to_string(&self).unwrap())
     }
 }
-
-
-
-

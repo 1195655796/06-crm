@@ -45,8 +45,6 @@ impl Crm for CrmService {
         &self,
         request: Request<RecallRequest>,
     ) -> Result<Response<RecallResponse>, Status> {
-
-
         let user_stat: Vec<UserStat> =
             sqlx::query_as("SELECT * FROM user_stats where gender = 'female'")
                 .fetch_all(&self.sqlx_pool)
@@ -61,15 +59,12 @@ impl Crm for CrmService {
                 })?;
         //info!("User stat: {:?}", user_stat);
         self.recall(request.into_inner()).await
-        
     }
 
     async fn remind(
         &self,
         request: Request<RemindRequest>,
-    ) -> Result<Response<RemindResponse>, Status> { 
-        
-
+    ) -> Result<Response<RemindResponse>, Status> {
         self.remind(request.into_inner()).await
     }
 }

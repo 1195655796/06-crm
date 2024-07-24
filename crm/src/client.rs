@@ -27,7 +27,6 @@ async fn main() -> Result<()> {
         req.metadata_mut().insert("authorization", token.clone());
         Ok(req)
     });
-    
 
     let req = WelcomeRequestBuilder::default()
         .id(Uuid::new_v4().to_string())
